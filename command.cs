@@ -8,7 +8,7 @@ using TerrariaApi.Server;
 using System.Timers;
 using Newtonsoft.Json;
 using System.IO;
-
+ 
 namespace CodeReward
 {
     public static class command
