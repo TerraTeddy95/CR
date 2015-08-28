@@ -8,7 +8,7 @@ using TerrariaApi.Server;
 using System.Timers;
 using Newtonsoft.Json;
 using System.IO;
-
+ 
 namespace CodeReward
 {
     [ApiVersion(1, 21)]
