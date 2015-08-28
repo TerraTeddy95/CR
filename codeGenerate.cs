@@ -28,9 +28,9 @@ namespace CodeReward
                 varslist.var.codeon = true;
 
                 string message = varslist.var.newCode;
-                while(message.Contains("%kod%"))
+                while(message.Contains("%code%"))
                 {
-                    message = message.Replace("%kod%", result);
+                    message = message.Replace("%code%", result);
                 }
 
                 
@@ -47,9 +47,9 @@ namespace CodeReward
                 varslist.var.code2 = result;
                 varslist.var.codeon2 = true;
                 string message = varslist.var.newCode;
-                while (message.Contains("%kod%"))
+                while (message.Contains("%code%"))
                 {
-                    message = message.Replace("%kod%", result);
+                    message = message.Replace("%code%", result);
                 }
 
 
