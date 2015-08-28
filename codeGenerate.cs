@@ -32,7 +32,7 @@ namespace CodeReward
                 {
                     message = message.Replace("%code%", result);
                 }
-
+ 
                 
                 TSPlayer.All.SendMessage("[CodeReward]"+message, Color.Silver);
                 return result;
