@@ -19,7 +19,7 @@ namespace CodeReward
             public static string LoginIn = " Musisz byc zalogowany aby moc wpisywac kod!";
             public static string Muted = " Jestes zmutowany! nie mozesz wpisywac kodu!";
             public static string TwoTimes = " Ostatnio ty byles pierwszy! Daj szanse innym!";
-            
+            public static string onHead = "Jestem zwyciezca! Weeeehe!";
 
             public static string code2;
             public static bool codeon2;
