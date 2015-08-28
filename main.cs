@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +11,7 @@ using System.IO;
 
 namespace CodeReward
 {
-    [ApiVersion(1, 20)]
+    [ApiVersion(1, 21)]
     public class main : TerrariaPlugin
     {
 
@@ -45,6 +45,12 @@ namespace CodeReward
             varslist.var.BuffTime = Config.BuffTime;
             varslist.var.lengthCode = Config.lengthCode;
             varslist.var.letters = Config.letters;
+            varslist.var.winMessage = Config.winMessage;
+            varslist.var.newCode = Config.newCode;
+            varslist.var.LoginIn = Config.LoginIn;
+            varslist.var.Muted = Config.Muted;
+            varslist.var.TwoTimes = Config.TwoTimes;
+            varslist.var.twotimesblock = Config.twotimesblock;
 
 
             System.Timers.Timer timer = new System.Timers.Timer(varslist.var.Inverval * (60 * 1000));
@@ -64,7 +70,15 @@ namespace CodeReward
             {
                 varslist.var.codeon = false;
                 varslist.var.code = null;
-                TSPlayer.All.SendMessage("[CodeReward] Zwyciezca: BRAK", Color.Silver);
+
+                string message = varslist.var.winMessage;
+                while (message.Contains("%gracz%"))
+                {
+                    message = message.Replace("%gracz%", "BRAK");
+                }
+
+
+                TSPlayer.All.SendMessage("[CodeReward]" + message, Color.Silver);
             }
         }
     }
