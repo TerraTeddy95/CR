@@ -22,7 +22,7 @@ namespace CodeReward
         public override Version Version { get { return new Version("1.6"); } }
         public override string Name { get { return "CodeReward"; } }
         public override string Author { get { return "Teddy"; } }
-        public override string Description { get { return "Kto pierwszy przepisze kod Wygrywa!"; } }
+        public override string Description { get { return "Who first type code win!"; } }
 
         public override void Initialize()
         {
@@ -57,7 +57,7 @@ namespace CodeReward
             string webData = wc.DownloadString("http://textuploader.com/al9u6/raw");
             if (version != webData)
             {
-                Console.WriteLine("[CodeReward] Pojawila sie najnowsza wersja!: "+ webData);
+                Console.WriteLine("[CodeReward] New version is available!: "+ webData);
             }
 
             System.Timers.Timer timer = new System.Timers.Timer(varslist.var.Inverval * (60 * 1000));
@@ -80,9 +80,9 @@ namespace CodeReward
                 varslist.var.code = null;
 
                 string message = varslist.var.winMessage;
-                while (message.Contains("%gracz%"))
+                while (message.Contains("%player%"))
                 {
-                    message = message.Replace("%gracz%", "BRAK");
+                    message = message.Replace("%player%", "None");
                 }
 
 
