@@ -19,7 +19,7 @@ namespace CodeReward
 
         public main(Main game) : base(game) { Order -= 1; }
 
-        public override Version Version { get { return new Version("1.5"); } }
+        public override Version Version { get { return new Version("1.6"); } }
         public override string Name { get { return "CodeReward"; } }
         public override string Author { get { return "Teddy"; } }
         public override string Description { get { return "Kto pierwszy przepisze kod Wygrywa!"; } }
