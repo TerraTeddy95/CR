@@ -24,9 +24,9 @@ namespace CodeReward
                     if (e.Parameters[0] == "help")
                     {
                         e.Player.SendMessage("*--====== Komendy ======--*", Color.Silver);
-                        e.Player.SendMessage("/cr help - Show list of commands.", Color.Silver);
-                        e.Player.SendMessage("/cr start <int> - generating new code.", Color.Silver);
-                        e.Player.SendMessage("/cr reload - reloading plugin.", Color.Silver);
+                        e.Player.SendMessage("/crt help - Show list of commands.", Color.Silver);
+                        e.Player.SendMessage("/crt start <int> - generating new code.", Color.Silver);
+                        e.Player.SendMessage("/crt reload - reloading plugin.", Color.Silver);
                         return;
                     }
                     if (e.Parameters[0] == "start")
@@ -101,13 +101,13 @@ namespace CodeReward
                 }
                 else
                 {
-                    e.Player.SendMessage("[CodeReward] Use /cr help", Color.Silver);
+                    e.Player.SendMessage("[CodeReward] Use /crt help", Color.Silver);
                     return;
                 }
             }
             else
             {
-                e.Player.SendMessage("[CodeReward] Author: Teddy, use /cr help", Color.Silver);
+                e.Player.SendMessage("[CodeReward] Author: Teddy, use /crt help", Color.Silver);
                 return;
             }
         }
