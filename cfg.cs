@@ -23,7 +23,7 @@ namespace CodeReward
 
         public List<int> RewardsBuffs = new List<int> { 1, 2, 3, 4, 5 };
         public List<int> RewardsItems = new List<int> { 1, 2, 3, 4, 5 };
-
+ 
 
 
 
