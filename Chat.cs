@@ -61,9 +61,9 @@ namespace CodeReward
                     }
 
                     string message = varslist.var.winMessage;
-                    while (message.Contains("%gracz%"))
+                    while (message.Contains("%player%"))
                     {
-                        message = message.Replace("%gracz%", sendername);
+                        message = message.Replace("%player%", sendername);
                     }
 
 
@@ -119,9 +119,9 @@ namespace CodeReward
 
 
                     string message = varslist.var.winMessage;
-                    while (message.Contains("%gracz%"))
+                    while (message.Contains("%player%"))
                     {
-                        message = message.Replace("%gracz%", sendername);
+                        message = message.Replace("%player%", sendername);
                     }
                     NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, varslist.var.onHead, 0, sender.X, sender.Y, 0, 0, 0, 0);
                    
