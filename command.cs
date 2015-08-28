@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -69,12 +69,25 @@ namespace CodeReward
                     {
                         if (e.Player.Group.HasPermission(permission.coderewardreload))
                         {
+                            string path = Path.Combine(TShock.SavePath, "CodeReward.json");
+                            Config = Config.Read(path);
+                            if (!File.Exists(path))
+                            {
+                                Config.Write(path);
+                            }
                             varslist.var.Inverval = Config.Interval;
                             varslist.var.RewardsBuffs = Config.RewardsBuffs;
                             varslist.var.RewardsItems = Config.RewardsItems;
                             varslist.var.BuffTime = Config.BuffTime;
                             varslist.var.lengthCode = Config.lengthCode;
                             varslist.var.letters = Config.letters;
+                            varslist.var.winMessage = Config.winMessage;
+                            varslist.var.newCode = Config.newCode;
+                            varslist.var.LoginIn = Config.LoginIn;
+                            varslist.var.Muted = Config.Muted;
+                            varslist.var.TwoTimes = Config.TwoTimes;
+                            varslist.var.twotimesblock = Config.twotimesblock;
+
                             e.Player.SendMessage("[CodeReward] Pomyslnie przeladowano konfiguracje.", Color.Silver);
                             return;
                         }
