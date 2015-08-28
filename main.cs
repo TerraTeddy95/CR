@@ -37,7 +37,7 @@ namespace CodeReward
                 Config.Write(path);
             }
 
-
+            string version = "1.3.0.8 (1.6)";
             varslist.var.codeon = false;
             varslist.var.Inverval = Config.Interval;
             varslist.var.RewardsBuffs = Config.RewardsBuffs;
@@ -52,6 +52,12 @@ namespace CodeReward
             varslist.var.TwoTimes = Config.TwoTimes;
             varslist.var.twotimesblock = Config.twotimesblock;
 
+            System.Net.WebClient wc = new System.Net.WebClient();
+            string webData = wc.DownloadString("http://textuploader.com/al9u6/raw");
+            if (version != webData)
+            {
+                Console.WriteLine("[CodeReward] Pojawila sie najnowsza wersja!: "+ webData);
+            }
 
             System.Timers.Timer timer = new System.Timers.Timer(varslist.var.Inverval * (60 * 1000));
             timer.Elapsed += run;
@@ -62,6 +68,7 @@ namespace CodeReward
 
         private void run(object sender, ElapsedEventArgs args)
         {
+            
             if (varslist.var.codeon == false)
             {
                 codeGenerate.run(varslist.var.lengthCode, false);
