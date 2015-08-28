@@ -27,7 +27,7 @@ namespace CodeReward
         public override void Initialize()
         {
             Commands.ChatCommands.Add(new Command(permission.codereward, command.functionCmd, "codereward"));
-            Commands.ChatCommands.Add(new Command(permission.codereward, command.functionCmd, "cr"));
+            Commands.ChatCommands.Add(new Command(permission.codereward, command.functionCmd, "crt"));
             ServerApi.Hooks.ServerChat.Register(this, chat.onChat);
 
             string path = Path.Combine(TShock.SavePath, "CodeReward.json");
