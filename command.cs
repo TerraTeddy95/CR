@@ -19,14 +19,14 @@ namespace CodeReward
         {
             if (e.Parameters.Count > 0)
             {
-                if (e.Parameters[0] == "pomoc" || e.Parameters[0] == "reload" || e.Parameters[0] == "start")
+                if (e.Parameters[0] == "help" || e.Parameters[0] == "reload" || e.Parameters[0] == "start")
                 {
-                    if (e.Parameters[0] == "pomoc")
+                    if (e.Parameters[0] == "help")
                     {
                         e.Player.SendMessage("*--====== Komendy ======--*", Color.Silver);
-                        e.Player.SendMessage("/cr pomoc - pokazuje liste komend.", Color.Silver);
-                        e.Player.SendMessage("/cr start <dlugosc> - generuje nowy kod.", Color.Silver);
-                        e.Player.SendMessage("/cr reload - przeladowuje plugin", Color.Silver);
+                        e.Player.SendMessage("/cr help - Show list of commands.", Color.Silver);
+                        e.Player.SendMessage("/cr start <dlugosc> - generating new code.", Color.Silver);
+                        e.Player.SendMessage("/cr reload - reloading plugin.", Color.Silver);
                         return;
                     }
                     if (e.Parameters[0] == "start")
@@ -54,13 +54,13 @@ namespace CodeReward
                             }
                             else
                             {
-                                e.Player.SendMessage("[CodeReward] Kod jest juz wygenerowany.", Color.Silver);
+                                e.Player.SendMessage("[CodeReward] Code is already generated.", Color.Silver);
                                 return;
                             }
                         }
                         else
                         {
-                            e.Player.SendMessage("[CodeReward] Nie masz uprawnien do tej komendy.", Color.Silver);
+                            e.Player.SendMessage("[CodeReward] You don't have permission.", Color.Silver);
                             return;
                         }
                     }
@@ -89,25 +89,25 @@ namespace CodeReward
                             varslist.var.twotimesblock = Config.twotimesblock;
                             varslist.var.onHead = Config.onHead;
 
-                            e.Player.SendMessage("[CodeReward] Pomyslnie przeladowano konfiguracje.", Color.Silver);
+                            e.Player.SendMessage("[CodeReward] Successfully reloaded.", Color.Silver);
                             return;
                         }
                         else
                         {
-                            e.Player.SendMessage("[CodeReward] Nie masz uprawnien do tej komendy.", Color.Silver);
+                            e.Player.SendMessage("[CodeReward] You don't have permission.", Color.Silver);
                             return;
                         }
                     }
                 }
                 else
                 {
-                    e.Player.SendMessage("[CodeReward] Uzyj /cr pomoc", Color.Silver);
+                    e.Player.SendMessage("[CodeReward] Use /cr help", Color.Silver);
                     return;
                 }
             }
             else
             {
-                e.Player.SendMessage("[CodeReward] Autor: Teddy, uzyj /cr pomoc", Color.Silver);
+                e.Player.SendMessage("[CodeReward] Author: Teddy, uzyj /cr help", Color.Silver);
                 return;
             }
         }
