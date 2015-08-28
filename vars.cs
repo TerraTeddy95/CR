@@ -14,12 +14,12 @@ namespace CodeReward
             public static int BuffTime = 300;
 
             public static string letters = "0123456789abcdefghijklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM";
-            public static string newCode = " Wygenerowano nowy kod: %kod%";
-            public static string winMessage = " Zwyciezca: %gracz%";
-            public static string LoginIn = " Musisz byc zalogowany aby moc wpisywac kod!";
-            public static string Muted = " Jestes zmutowany! nie mozesz wpisywac kodu!";
-            public static string TwoTimes = " Ostatnio ty byles pierwszy! Daj szanse innym!";
-            public static string onHead = "Jestem zwyciezca! Weeeehe!";
+            public static string newCode = " New code is: %code%";
+            public static string winMessage = " Winner: %player%";
+            public static string LoginIn = " You must be logged!";
+            public static string Muted = " You are muted, u can't write code!";
+            public static string TwoTimes = " Recently you were the first! Give others a chance!";
+            public static string onHead = "I'm winner! Weeeehe!";
 
             public static string code2;
             public static bool codeon2;
