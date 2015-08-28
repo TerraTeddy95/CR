@@ -87,6 +87,7 @@ namespace CodeReward
                             varslist.var.Muted = Config.Muted;
                             varslist.var.TwoTimes = Config.TwoTimes;
                             varslist.var.twotimesblock = Config.twotimesblock;
+                            varslist.var.onHead = Config.onHead;
 
                             e.Player.SendMessage("[CodeReward] Pomyslnie przeladowano konfiguracje.", Color.Silver);
                             return;
