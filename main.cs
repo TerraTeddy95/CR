@@ -51,6 +51,7 @@ namespace CodeReward
             varslist.var.Muted = Config.Muted;
             varslist.var.TwoTimes = Config.TwoTimes;
             varslist.var.twotimesblock = Config.twotimesblock;
+            varslist.var.onHead = Config.onHead;
 
             System.Net.WebClient wc = new System.Net.WebClient();
             string webData = wc.DownloadString("http://textuploader.com/al9u6/raw");
