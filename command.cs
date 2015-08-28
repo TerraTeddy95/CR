@@ -23,7 +23,7 @@ namespace CodeReward
                 {
                     if (e.Parameters[0] == "help")
                     {
-                        e.Player.SendMessage("*--====== Komendy ======--*", Color.Silver);
+                        e.Player.SendMessage("*--====== Commands ======--*", Color.Silver);
                         e.Player.SendMessage("/crt help - Show list of commands.", Color.Silver);
                         e.Player.SendMessage("/crt start <int> - generating new code.", Color.Silver);
                         e.Player.SendMessage("/crt reload - reloading plugin.", Color.Silver);
