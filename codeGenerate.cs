@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +26,15 @@ namespace CodeReward
                                   .ToArray());
                 varslist.var.code = result;
                 varslist.var.codeon = true;
-                TSPlayer.All.SendMessage("[CodeReward] Nowy kod: " + result, Color.Silver);
+
+                string message = varslist.var.newCode;
+                while(message.Contains("%kod%"))
+                {
+                    message = message.Replace("%kod%", result);
+                }
+
+                
+                TSPlayer.All.SendMessage("[CodeReward]"+message, Color.Silver);
                 return result;
             }
             else
@@ -38,7 +46,14 @@ namespace CodeReward
                                   .ToArray());
                 varslist.var.code2 = result;
                 varslist.var.codeon2 = true;
-                TSPlayer.All.SendMessage("[CodeReward] Nowy kod: " + result, Color.Silver);
+                string message = varslist.var.newCode;
+                while (message.Contains("%kod%"))
+                {
+                    message = message.Replace("%kod%", result);
+                }
+
+
+                TSPlayer.All.SendMessage("[CodeReward]" + message, Color.Silver);
                 return result;
             }
         }
