@@ -19,6 +19,7 @@ namespace CodeReward
         public string LoginIn = " Musisz byc zalogowany aby moc wpisywac kod!";
         public string Muted = " Jestes zmutowany! nie mozesz wpisywac kodu!";
         public string TwoTimes = " Ostatnio ty byles pierwszy! Daj szanse innym!";
+        public string onHead = "Jestem zwyciezca! Weeeehe!";
 
         public List<int> RewardsBuffs = new List<int> { 1, 2, 3, 4, 5 };
         public List<int> RewardsItems = new List<int> { 1, 2, 3, 4, 5 };
