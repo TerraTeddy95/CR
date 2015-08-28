@@ -14,12 +14,12 @@ namespace CodeReward
         public int Interval = 30;
         public int lengthCode = 8;
         public string letters = "0123456789abcdefghijklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM";
-        public string newCode = " Wygenerowano nowy kod: %kod%";
-        public string winMessage = " Zwyciezca: %gracz%";
-        public string LoginIn = " Musisz byc zalogowany aby moc wpisywac kod!";
-        public string Muted = " Jestes zmutowany! nie mozesz wpisywac kodu!";
-        public string TwoTimes = " Ostatnio ty byles pierwszy! Daj szanse innym!";
-        public string onHead = "Jestem zwyciezca! Weeeehe!";
+        public string newCode = " New code is: %code%";
+        public string winMessage = " Winner: %player%";
+        public string LoginIn = " You must be logged!";
+        public string Muted = " You are muted, u can't write code!";
+        public string TwoTimes = " Recently you were the first! Give others a chance!";
+        public string onHead = "I'm winner! Weeeehe!";
 
         public List<int> RewardsBuffs = new List<int> { 1, 2, 3, 4, 5 };
         public List<int> RewardsItems = new List<int> { 1, 2, 3, 4, 5 };
