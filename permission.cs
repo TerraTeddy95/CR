@@ -13,3 +13,4 @@ namespace CodeReward
         public static readonly string coderewardreload = "codereward.reload";
     }
 }
+ 
