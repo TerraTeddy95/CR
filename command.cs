@@ -25,7 +25,7 @@ namespace CodeReward
                     {
                         e.Player.SendMessage("*--====== Komendy ======--*", Color.Silver);
                         e.Player.SendMessage("/cr help - Show list of commands.", Color.Silver);
-                        e.Player.SendMessage("/cr start <dlugosc> - generating new code.", Color.Silver);
+                        e.Player.SendMessage("/cr start <int> - generating new code.", Color.Silver);
                         e.Player.SendMessage("/cr reload - reloading plugin.", Color.Silver);
                         return;
                     }
@@ -107,7 +107,7 @@ namespace CodeReward
             }
             else
             {
-                e.Player.SendMessage("[CodeReward] Author: Teddy, uzyj /cr help", Color.Silver);
+                e.Player.SendMessage("[CodeReward] Author: Teddy, use /cr help", Color.Silver);
                 return;
             }
         }
