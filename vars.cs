@@ -23,7 +23,7 @@ namespace CodeReward
 
             public static string code2;
             public static bool codeon2;
-
+ 
             public static string code;
             public static bool codeon;
             public static string lastp;
