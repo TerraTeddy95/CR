@@ -10,7 +10,7 @@ namespace CodeReward
     {
         public bool twotimesblock = true;
 
-        public int BuffTime = 300;
+        public int BuffTime = 3600;
         public int Interval = 30;
         public int lengthCode = 8;
         public string letters = "0123456789abcdefghijklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM";
@@ -21,9 +21,9 @@ namespace CodeReward
         public string TwoTimes = " Recently you were the first! Give others a chance!";
         public string onHead = "I'm winner! Weeeehe!";
 
-        public List<int> RewardsBuffs = new List<int> { 1, 2, 3, 4, 5 };
-        public List<int> RewardsItems = new List<int> { 1, 2, 3, 4, 5 };
-  
+        public Dictionary<int, bool> RewardsBuffs = new Dictionary<int, bool>() {};
+        public Dictionary<int, bool> RewardsItems = new Dictionary<int, bool>() {};
+
 
 
 
