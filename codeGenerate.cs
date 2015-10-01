@@ -28,13 +28,13 @@ namespace CodeReward
                 varslist.var.codeon = true;
 
                 string message = varslist.var.newCode;
-                while(message.Contains("%code%"))
+                while (message.Contains("%code%"))
                 {
                     message = message.Replace("%code%", result);
                 }
- 
-                
-                TSPlayer.All.SendMessage("[CodeReward]"+message, Color.Silver);
+
+
+                TSPlayer.All.SendMessage("[CodeReward]" + message, Color.Silver);
                 return result;
             }
             else
