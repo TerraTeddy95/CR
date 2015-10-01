@@ -8,7 +8,7 @@ using TerrariaApi.Server;
 using System.Timers;
 using Newtonsoft.Json;
 using System.IO;
- 
+
 namespace CodeReward
 {
     public static class command
@@ -38,7 +38,7 @@ namespace CodeReward
                             bool isNumerical = false;
                             if (e.Parameters.Count > 1)
                             {
-                                
+
                                 isNumerical = int.TryParse(e.Parameters[1], out cos);
                             }
                             if (isNumerical == true)
@@ -76,8 +76,13 @@ namespace CodeReward
                                 Config.Write(path);
                             }
                             varslist.var.Inverval = Config.Interval;
+
+                            varslist.var.RewardsBuffs.Clear();
                             varslist.var.RewardsBuffs = Config.RewardsBuffs;
+
+                            varslist.var.RewardsItems.Clear();
                             varslist.var.RewardsItems = Config.RewardsItems;
+
                             varslist.var.BuffTime = Config.BuffTime;
                             varslist.var.lengthCode = Config.lengthCode;
                             varslist.var.letters = Config.letters;
