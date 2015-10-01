@@ -11,128 +11,82 @@ using System.IO;
 
 namespace CodeReward
 {
-    public static class chat
+    [ApiVersion(1, 21)]
+    public class main : TerrariaPlugin
     {
-        public static void onChat(ServerChatEventArgs e)
+
+        public static Config Config;
+
+        public main(Main game) : base(game) { Order -= 1; }
+
+        public override Version Version { get { return new Version("1.8"); } }
+        public override string Name { get { return "CodeReward"; } }
+        public override string Author { get { return "Teddy"; } }
+        public override string Description { get { return "Who first type code win!"; } }
+
+        public override void Initialize()
         {
-            if (e.Handled == true)
+            Commands.ChatCommands.Add(new Command(permission.codereward, command.functionCmd, "codereward"));
+            Commands.ChatCommands.Add(new Command(permission.codereward, command.functionCmd, "crt"));
+            ServerApi.Hooks.ServerChat.Register(this, chat.onChat);
+
+            string path = Path.Combine(TShock.SavePath, "CodeReward.json");
+            Config = Config.Read(path);
+            if (!File.Exists(path))
             {
-                return;
+                Config.Write(path);
             }
-            if (varslist.var.codeon == true)
+
+            string version = "1.3.0.8 (1.8)";
+            varslist.var.codeon = false;
+            varslist.var.Inverval = Config.Interval;
+            varslist.var.RewardsBuffs = Config.RewardsBuffs;
+            varslist.var.RewardsItems = Config.RewardsItems;
+            varslist.var.BuffTime = Config.BuffTime;
+            varslist.var.lengthCode = Config.lengthCode;
+            varslist.var.letters = Config.letters;
+            varslist.var.winMessage = Config.winMessage;
+            varslist.var.newCode = Config.newCode;
+            varslist.var.LoginIn = Config.LoginIn;
+            varslist.var.Muted = Config.Muted;
+            varslist.var.TwoTimes = Config.TwoTimes;
+            varslist.var.twotimesblock = Config.twotimesblock;
+            varslist.var.onHead = Config.onHead;
+
+            System.Net.WebClient wc = new System.Net.WebClient();
+            string webData = wc.DownloadString("http://textuploader.com/al9u6/raw");
+            if (version != webData)
             {
-                String sendername = TShock.Players[e.Who].Name;
-                TSPlayer sender = TShock.Players[e.Who];
+                Console.WriteLine("[CodeReward] New version is available!: " + webData);
+            }
+
+            System.Timers.Timer timer = new System.Timers.Timer(varslist.var.Inverval * (60 * 1000));
+            timer.Elapsed += run;
+            timer.Start();
+        }
 
 
 
-                if (e.Text == varslist.var.code)
+        private void run(object sender, ElapsedEventArgs args)
+        {
+
+            if (varslist.var.codeon == false)
+            {
+                codeGenerate.run(varslist.var.lengthCode, false);
+            }
+            else
+            {
+                varslist.var.codeon = false;
+                varslist.var.code = null;
+
+                string message = varslist.var.winMessage;
+                while (message.Contains("%player%"))
                 {
-                    if (sender.IsLoggedIn == false)
-                    {
-                        sender.SendMessage("[CodeReward]" + varslist.var.LoginIn, Color.Silver);
-                        return;
-                    }
-                    if (sender.mute == true)
-                    {
-                        sender.SendMessage("[CodeReward]" + varslist.var.Muted, Color.Silver);
-                        return;
-                    }
-                    if (varslist.var.lastp == sendername)
-                    {
-                        if (varslist.var.twotimesblock == true)
-                        {
-                            sender.SendMessage("[CodeReward]" + varslist.var.TwoTimes, Color.Silver);
-                            return;
-                        }
-                    }
-
-                    varslist.var.lastp = sendername;
-                    varslist.var.code = null;
-                    varslist.var.codeon = false;
-
-                    foreach (int reward in varslist.var.RewardsBuffs)
-                    {
-                        sender.SetBuff(reward, varslist.var.BuffTime, true);
-                    }
-                    foreach (int reward in varslist.var.RewardsItems)
-                    {
-                        sender.GiveItem(reward, "", 0, 0, 1, 0);
-                    }
-
-                    string message = varslist.var.winMessage;
-                    while (message.Contains("%player%"))
-                    {
-                        message = message.Replace("%player%", sendername);
-                    }
-
-
-                    NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, varslist.var.onHead, 0, sender.X, sender.Y, 0, 0, 0, 0);
-                    TSPlayer.All.SendMessage("[CodeReward]" + message, Color.Silver);
-
- 
+                    message = message.Replace("%player%", "None");
                 }
 
 
-
-            }
-            if (varslist.var.codeon2 == true)
-            {
-                String sendername = TShock.Players[e.Who].Name;
-                TSPlayer sender = TShock.Players[e.Who];
-
-
-
-                if (e.Text == varslist.var.code2)
-                {
-                    if (sender.IsLoggedIn == false)
-                    {
-                        sender.SendMessage("[CodeReward]" + varslist.var.LoginIn, Color.Silver);
-                        return;
-                    }
-                    if (sender.mute == true)
-                    {
-                        sender.SendMessage("[CodeReward]" + varslist.var.Muted, Color.Silver);
-                        return;
-                    }
-                    if (varslist.var.lastp == sendername)
-                    {
-                        if (varslist.var.twotimesblock == true)
-                        {
-                            sender.SendMessage("[CodeReward]" + varslist.var.TwoTimes, Color.Silver);
-                            return;
-                        }
-                    }
-
-                    varslist.var.lastp = sendername;
-                    varslist.var.code2 = null;
-                    varslist.var.codeon2 = false;
-
-                    foreach (int reward in varslist.var.RewardsBuffs)
-                    {
-                        sender.SetBuff(reward, varslist.var.BuffTime, true);
-                    }
-                    foreach (int reward in varslist.var.RewardsItems)
-                    {
-                        sender.GiveItem(reward, "", 0, 0, 1, 0);
-                    }
-
-
-                    string message = varslist.var.winMessage;
-                    while (message.Contains("%player%"))
-                    {
-                        message = message.Replace("%player%", sendername);
-                    }
-                    NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, varslist.var.onHead, 0, sender.X, sender.Y, 0, 0, 0, 0);
-                   
-
-                     
-                    TSPlayer.All.SendMessage("[CodeReward]" + message, Color.Silver);
-
-                }
-
-
-
+                TSPlayer.All.SendMessage("[CodeReward]" + message, Color.Silver);
             }
         }
     }
