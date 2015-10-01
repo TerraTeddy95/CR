@@ -11,7 +11,7 @@ namespace CodeReward
         public class var
         {
             public static int Inverval = 30;
-            public static int BuffTime = 300;
+            public static int BuffTime = 3600;
 
             public static string letters = "0123456789abcdefghijklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM";
             public static string newCode = " New code is: %code%";
@@ -23,7 +23,7 @@ namespace CodeReward
 
             public static string code2;
             public static bool codeon2;
- 
+
             public static string code;
             public static bool codeon;
             public static string lastp;
@@ -31,8 +31,8 @@ namespace CodeReward
 
             public static bool twotimesblock;
 
-            public static List<int> RewardsBuffs;
-            public static List<int> RewardsItems;
+            public static Dictionary<int, bool> RewardsBuffs = new Dictionary<int, bool>()  {};
+            public static Dictionary<int, bool> RewardsItems = new Dictionary<int, bool>() {};
         }
     }
 }
