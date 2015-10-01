@@ -8,7 +8,7 @@ using TerrariaApi.Server;
 using System.Timers;
 using Newtonsoft.Json;
 using System.IO;
- 
+
 namespace CodeReward
 {
     [ApiVersion(1, 21)]
@@ -19,7 +19,7 @@ namespace CodeReward
 
         public main(Main game) : base(game) { Order -= 1; }
 
-        public override Version Version { get { return new Version("1.7"); } }
+        public override Version Version { get { return new Version("1.8"); } }
         public override string Name { get { return "CodeReward"; } }
         public override string Author { get { return "Teddy"; } }
         public override string Description { get { return "Who first type code win!"; } }
@@ -37,7 +37,7 @@ namespace CodeReward
                 Config.Write(path);
             }
 
-            string version = "1.3.0.8 (1.7)";
+            string version = "1.3.0.8 (1.8)";
             varslist.var.codeon = false;
             varslist.var.Inverval = Config.Interval;
             varslist.var.RewardsBuffs = Config.RewardsBuffs;
@@ -57,7 +57,7 @@ namespace CodeReward
             string webData = wc.DownloadString("http://textuploader.com/al9u6/raw");
             if (version != webData)
             {
-                Console.WriteLine("[CodeReward] New version is available!: "+ webData);
+                Console.WriteLine("[CodeReward] New version is available!: " + webData);
             }
 
             System.Timers.Timer timer = new System.Timers.Timer(varslist.var.Inverval * (60 * 1000));
@@ -69,7 +69,7 @@ namespace CodeReward
 
         private void run(object sender, ElapsedEventArgs args)
         {
-            
+
             if (varslist.var.codeon == false)
             {
                 codeGenerate.run(varslist.var.lengthCode, false);
