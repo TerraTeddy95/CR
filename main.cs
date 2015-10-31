@@ -12,7 +12,7 @@ using System.IO;
 
 namespace CodeReward
 {
-    [ApiVersion(1, 21)]
+    [ApiVersion(1, 22)]
     public class main : TerrariaPlugin
     {
 
